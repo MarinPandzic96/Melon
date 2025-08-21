@@ -1,5 +1,6 @@
 from playwright.async_api import Page
-from playwright.sync_api import Playwright
+from playwright.sync_api import Playwright, expect
+
 
 def test_webflow(playwright: Playwright, browser_instance):
     browser_instance.goto("https://mostar.api.demo.ch.melon.market/")
@@ -16,5 +17,23 @@ def test_webflow(playwright: Playwright, browser_instance):
     new_page.wait_for_load_state("networkidle")
 
     new_page.get_by_text('Start').click()
+    new_page.locator("#parking-true").click()
+    new_page.get_by_text('Save and next').click()
 
-    browser_instance.wait_for_timeout(3000)
+    new_page.locator('#field-household_type').click()
+    new_page.get_by_text('couple household with child').click()
+    new_page.locator("#pets-false").click()
+    new_page.locator("#music_instruments-false").click()
+    new_page.locator("#smoking-true").click()
+
+    new_page.locator('#field-relocation_reason').click()
+    new_page.get_by_text('Change of life situation').click()
+
+    new_page.locator("#securities_options-deposit").click()
+
+    new_page.locator('#field-source').click()
+    new_page.get_by_text('Facebook').click()
+
+    # browser_instance.wait_for_timeout(8000)
+
+    new_page.get_by_text('Save and next').click()
