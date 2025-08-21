@@ -1,5 +1,9 @@
 from playwright.async_api import Page
 from playwright.sync_api import Playwright, expect
+import json
+import pytest
+
+from pageObjects.mainPage import MainPage
 
 
 def test_webflow(playwright: Playwright, browser_instance):
@@ -34,7 +38,7 @@ def test_webflow(playwright: Playwright, browser_instance):
 
     new_page.get_by_text('Save and next').click()
 
-
+    #This i need to repeat with different person
     new_page.locator('#create-new-adult').click()
 
     new_page.locator('#field-title').click()
@@ -89,4 +93,13 @@ def test_webflow(playwright: Playwright, browser_instance):
     new_page.locator("#submit-nested-form").click()
 
     #browser_instance.wait_for_timeout(10000)
+
+def test_webflowTwo(playwright: Playwright, browser_instance,test_data):
+    mainPage = MainPage(browser_instance)
+    mainPage.navigate()
+    formApplicationPage = mainPage.selectApartment()
+    formApplicationPage.objectStep()
+    formApplicationPage.houseHoldStep()
+    formApplicationPage.addAdult(test_data["adult_1"])
+    formApplicationPage.addAdult(test_data["adult_2"])
 

@@ -1,0 +1,40 @@
+{
+  "adult_1": {
+    "tittle": "Mr.",
+    "firstname": "Hans",
+    "lastname": "Tester",
+    "birth_date": "1990-05-15",
+    "civil_status": "married",
+    "nationality": "KM",
+    "permit": "B",
+    "tenant_type": "main_tenant",
+    "cellphone": "781234567",
+    "email": "melontest@maildrop.cc",
+    "address": "Test 10",
+    "postcode": "12345",
+    "city": "Glasgow",
+    "country": "DE",
+    "living_date": "2001-06-24",
+    "employment": "unemployed",
+    "credit_check": "securities-certificat"
+  },
+  "adult_2": {
+    "tittle": "Ms.",
+    "firstname": "Hansy",
+    "lastname": "Tester",
+    "birth_date": "1992-05-15",
+    "civil_status": "married",
+    "nationality": "KM",
+    "permit": "B",
+    "tenant_type": "main_tenant",
+    "cellphone": "783214567",
+    "email": "melontest2@maildrop.cc",
+    "address": "Test 10",
+    "postcode": "12345",
+    "city": "Glasgow",
+    "country": "DE",
+    "living_date": "2001-06-24",
+    "employment": "unemployed",
+    "credit_check": "securities-certificat"
+  }
+}
