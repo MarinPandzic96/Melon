@@ -73,10 +73,11 @@ class FormApplication:
         self.page.locator(f'[id="{adult_data['country']}"]').click()
 
         living_date = adult_data["living_date"]
-        living_day = living_date.split("-")[2]  # "15"
-        living_month = living_date.split("-")[1].lstrip("0")  # "05"
+        living_day = living_date.split("-")[2]
+        #living_month = living_date.split("-")[1].lstrip("0")
+        living_month = living_date.split("-")[1]
         living_month_number = int(living_month) - 1
-        living_year = living_date.split("-")[0]  # "1990"
+        living_year = living_date.split("-")[0]
 
         self.page.locator('#field-living_since').click()
         self.page.locator("div.months-options").locator("input[placeholder='Search...']").click()
@@ -84,6 +85,8 @@ class FormApplication:
         self.page.locator("div.years-options").locator("input[placeholder='Search...']").click()
         self.page.locator(f'[id="{living_year}"]').click()
         self.page.click(f"td:has-text('{living_day}')")
+
+        self.page.wait_for_timeout(10000)
         #self.page.locator("div.months-options").locator("input[placeholder='Search...']").click()
         #self.page.get_by_text(' December ').click()
         #self.page.locator("div.years-options").locator("input[placeholder='Search...']").click()
@@ -98,4 +101,29 @@ class FormApplication:
         self.page.locator("#field-agreement_references").click()
 
         self.page.locator("#submit-nested-form").click()
-        self.page.wait_for_timeout(20000)
+        #self.page.wait_for_timeout(20000)
+
+    def addChild(self,child_data):
+        self.page.locator('#create-new-child').click()
+        self.page.fill('#field-firstname', child_data['firstname'])
+        self.page.fill('#field-name', child_data['lastname'])
+
+        #self.page.locator('#field-date_of_birth').click()
+        self.page.locator('[id="field-date_of_birth"]').click()
+        birth_date = child_data["birth_date"]  # "1990-05-15"
+        day = birth_date.split("-")[2]  # "15"
+        month = birth_date.split("-")[1].lstrip("0")  # "05"
+        month_number = int(month) - 1
+        year = birth_date.split("-")[0]  # "1990"
+
+        self.page.locator("div.months-options").locator("input[placeholder='Search...']").click()
+        self.page.locator(f'[id="{month_number}"]').click()
+        self.page.locator("div.years-options").locator("input[placeholder='Search...']").click()
+        self.page.locator(f'[id="{year}"]').click()
+        self.page.click(f"td:has-text('{day}')")
+
+        self.page.fill('#field-days_present', child_data['nights'])
+
+        self.page.wait_for_timeout(8000)
+
+        self.page.locator('#submit-nested-form').click()

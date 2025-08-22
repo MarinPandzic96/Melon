@@ -101,5 +101,6 @@ def test_webflowTwo(playwright: Playwright, browser_instance,test_data):
     formApplicationPage.objectStep()
     formApplicationPage.houseHoldStep()
     formApplicationPage.addAdult(test_data["adult_1"])
-    formApplicationPage.addAdult(test_data["adult_2"])
+    #formApplicationPage.addAdult(test_data["adult_2"])
+    #formApplicationPage.addChild(test_data["child"])
 
