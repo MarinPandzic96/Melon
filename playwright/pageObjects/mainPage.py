@@ -9,7 +9,6 @@ class MainPage:
         self.page.goto("https://mostar.api.demo.ch.melon.market/")
 
     def selectApartment(self,apartment):
-        #self.page.get_by_role("row", name="00.01.02 Kanzlei A CHF 1'850").locator("span").nth(1).click()
         self.page.get_by_role("row", name=f"{apartment['tittle']}").locator("span").nth(1).click()
         with self.page.context.expect_page() as new_page_info:
             self.page.locator("div.button", has_text="Apply").click()

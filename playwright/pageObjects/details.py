@@ -13,7 +13,8 @@ class DetailsPage:
         self._checkAdult(adult_1)
         self._checkAdult(adult_2)
         self._checkChild(child)
-        self.page.wait_for_timeout(3000)
+
+        #Add more validation for data
 
     def _checkAdult(self, adult):
         adult_name = adult["firstname"] + " " + adult["lastname"]

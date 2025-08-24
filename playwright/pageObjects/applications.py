@@ -8,8 +8,6 @@ class ApplicationsPage:
         self.page = page
 
     def checkValidData(self, test_data ):
-        #self.page.wait_for_timeout(5000)
-        #self.page.wait_for_load_state("load")
         expect(self.page.locator(".main-table")).to_be_visible()
         rows = self.page.locator("table tbody tr").all()
         apartment = test_data['apartment']
@@ -37,5 +35,5 @@ class ApplicationsPage:
                         row.locator(".detail-column-items i").nth(1).click()
                         detailsPage = DetailsPage(self.page)
                         return detailsPage
-
-        self.page.wait_for_timeout(5000)
+            else:
+                continue
