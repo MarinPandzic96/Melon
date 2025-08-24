@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79659a85-d799-41d4-8925-c1c88e4df944" name="Changes" comment="Added data json file, used page object and finished adding adult functionality">
+    <list default="true" id="79659a85-d799-41d4-8925-c1c88e4df944" name="Changes" comment="Added child form">
+      <change afterPath="$PROJECT_DIR$/playwright/pageObjects/applications.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playwright/pageObjects/details.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playwright/pageObjects/home.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playwright/pageObjects/login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playwright/data/testData.json" beforeDir="false" afterPath="$PROJECT_DIR$/playwright/data/testData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playwright/pageObjects/formApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/playwright/pageObjects/formApplication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playwright/pageObjects/mainPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/playwright/pageObjects/mainPage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playwright/test_webflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/playwright/test_webflow.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,27 +50,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for playwright.test_webflow.test_new.executor": "Run",
-    "Python tests.Python tests for playwright.test_webflow.test_webflow.executor": "Run",
-    "Python tests.Python tests for playwright.test_webflow.test_webflowTwo.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Marin/PycharmProjects/Melon",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.python.group.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for playwright.test_webflow.test_loginAndCheck.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for playwright.test_webflow.test_new.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for playwright.test_webflow.test_webflow.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for playwright.test_webflow.test_webflowTwo.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Marin/PycharmProjects/Melon&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.python.group.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Python tests.Python tests for playwright.test_webflow.test_webflowTwo">
+}</component>
+  <component name="RunManager" selected="Python tests.Python tests for playwright.test_webflow.test_loginAndCheck">
+    <configuration name="Python tests for playwright.test_webflow.test_loginAndCheck" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Melon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;playwright.test_webflow.test_loginAndCheck&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for playwright.test_webflow.test_new" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Melon" />
       <option name="ENV_FILES" value="" />
@@ -116,6 +138,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for playwright.test_webflow.test_loginAndCheck" />
         <item itemvalue="Python tests.Python tests for playwright.test_webflow.test_webflowTwo" />
         <item itemvalue="Python tests.Python tests for playwright.test_webflow.test_new" />
         <item itemvalue="Python tests.Python tests for playwright.test_webflow.test_webflow" />
@@ -140,7 +163,9 @@
       <workItem from="1755526416293" duration="6751000" />
       <workItem from="1755767543639" duration="13696000" />
       <workItem from="1755793451307" duration="9894000" />
-      <workItem from="1755852675697" duration="690000" />
+      <workItem from="1755852675697" duration="3019000" />
+      <workItem from="1755863625725" duration="14984000" />
+      <workItem from="1755979167333" duration="3739000" />
     </task>
     <task id="LOCAL−00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -177,7 +202,14 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1755799754795</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Added child form">
+      <option name="closed" value="true" />
+      <created>1755853646273</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1755853646273</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,9 +232,10 @@
     <MESSAGE value="Finished demo object and household steps" />
     <MESSAGE value="Finished adding one adult" />
     <MESSAGE value="Added data json file, used page object and finished adding adult functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added data json file, used page object and finished adding adult functionality" />
+    <MESSAGE value="Added child form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added child form" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Melon$.coverage" NAME=" Coverage Results" MODIFIED="1755853041464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Melon$.coverage" NAME=" Coverage Results" MODIFIED="1755982900280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

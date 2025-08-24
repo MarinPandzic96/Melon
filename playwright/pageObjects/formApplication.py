@@ -1,8 +1,11 @@
+from playwright.sync_api import expect
+
+
 class FormApplication:
     def __init__(self, page):
         self.page = page
 
-    def objectStep(self):
+    def objectStep(self, apartment):
         self.page.get_by_text('Start').click()
         self.page.locator("#parking-true").click()
         self.page.get_by_text('Save and next').click()
@@ -23,6 +26,7 @@ class FormApplication:
         self.page.get_by_text('Facebook').click()
 
         self.page.get_by_text('Save and next').click()
+        expect(self.page.locator(".input-errors")).to_have_count(0)
 
     def addAdult(self,adult_data):
         self.page.locator('#create-new-adult').click()
@@ -61,6 +65,14 @@ class FormApplication:
         #self.page.locator('#main_tenant').click()
         # new_page.get_by_text(' Main tenant ').click()
 
+        clean_dial_code = adult_data['calling_code'].lstrip('+')  # Removes + from the beginning
+
+        self.page.locator(".iti__flag-container").first.click()
+        self.page.click(f'[data-dial-code="{clean_dial_code}"]')
+        #self.page.locator('[data-dial-code]')
+        #self.page.get_by_text(adult_data["calling_code"]).click()
+
+
         self.page.fill('#field-phone', adult_data['cellphone'])
         self.page.fill('#field-email', adult_data['email'])
         self.page.fill('#confirm-field-email', adult_data['email'])
@@ -86,7 +98,7 @@ class FormApplication:
         self.page.locator(f'[id="{living_year}"]').click()
         self.page.click(f"td:has-text('{living_day}')")
 
-        self.page.wait_for_timeout(10000)
+        #self.page.wait_for_timeout(10000)
         #self.page.locator("div.months-options").locator("input[placeholder='Search...']").click()
         #self.page.get_by_text(' December ').click()
         #self.page.locator("div.years-options").locator("input[placeholder='Search...']").click()
@@ -101,6 +113,7 @@ class FormApplication:
         self.page.locator("#field-agreement_references").click()
 
         self.page.locator("#submit-nested-form").click()
+        expect(self.page.locator(".input-errors")).not_to_be_visible()
         #self.page.wait_for_timeout(20000)
 
     def addChild(self,child_data):
@@ -110,12 +123,11 @@ class FormApplication:
 
         #self.page.locator('#field-date_of_birth').click()
         self.page.locator('[id="field-date_of_birth"]').click()
-        birth_date = child_data["birth_date"]  # "1990-05-15"
-        day = birth_date.split("-")[2]  # "15"
-        month = birth_date.split("-")[1].lstrip("0")  # "05"
+        birth_date = child_data["birth_date"]
+        day = birth_date.split("-")[2]
+        month = birth_date.split("-")[1].lstrip("0")
         month_number = int(month) - 1
-        year = birth_date.split("-")[0]  # "1990"
-
+        year = birth_date.split("-")[0]
         self.page.locator("div.months-options").locator("input[placeholder='Search...']").click()
         self.page.locator(f'[id="{month_number}"]').click()
         self.page.locator("div.years-options").locator("input[placeholder='Search...']").click()
@@ -124,6 +136,20 @@ class FormApplication:
 
         self.page.fill('#field-days_present', child_data['nights'])
 
-        self.page.wait_for_timeout(8000)
+        #self.page.wait_for_timeout(8000)
 
         self.page.locator('#submit-nested-form').click()
+        expect(self.page.locator(".input-errors")).not_to_be_visible()
+
+    def finishPeopleStep(self):
+        #self.page.wait_for_timeout(3000)
+        self.page.locator('[id=application-btn-submit]').click()
+
+    def summaryStep(self):
+        #add a check for apartment and people
+
+        self.page.check('#field-agreement_penalty')
+        self.page.check('#field-agreement_truth')
+        self.page.check('#field-agreement_privacy')
+
+        self.page.locator('#application-btn-submit').click()
