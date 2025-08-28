@@ -55,32 +55,32 @@ class FormApplication:
         self.page.click(f"td:has-text('{day}')")
 
         self.page.locator('#field-civil_status').click()
-        self.page.locator(f'[id="{adult_data['civil_status']}"]').click()
+        self.page.locator(f'[id="{adult_data["civil_status"]}"]').click()
 
         self.page.locator('#field-nation').click()
-        self.page.locator(f'[id="{adult_data['nationality']}"]').click()
+        self.page.locator(f'[id="{adult_data["nationality"]}"]').click()
 
         self.page.locator('#field-permit').click()
-        self.page.locator(f'[id="{adult_data['permit']}"]').click()
+        self.page.locator(f'[id="{adult_data["permit"]}"]').click()
 
         self.page.locator('#field-tenant_type').click()
-        self.page.locator(f'[id="{adult_data['tenant_type']}"]').click()
+        self.page.locator(f'[id="{adult_data["tenant_type"]}"]').click()
 
-        clean_dial_code = adult_data['calling_code'].lstrip('+')
+        clean_dial_code = adult_data["calling_code"].lstrip('+')
 
         self.page.locator(".iti__flag-container").first.click()
         self.page.click(f'[data-dial-code="{clean_dial_code}"]')
 
 
-        self.page.fill('#field-phone', adult_data['cellphone'])
-        self.page.fill('#field-email', adult_data['email'])
-        self.page.fill('#confirm-field-email', adult_data['email'])
+        self.page.fill('#field-phone', adult_data["cellphone"])
+        self.page.fill('#field-email', adult_data["email"])
+        self.page.fill('#confirm-field-email', adult_data["email"])
 
         self.page.fill('#field-street_nr', adult_data['address'])
         self.page.fill('#field-postcode', adult_data['postcode'])
         self.page.fill('#field-city',  adult_data['city'])
         self.page.locator('#field-country').click()
-        self.page.locator(f'[id="{adult_data['country']}"]').click()
+        self.page.locator(f'[id="{adult_data["country"]}"]').click()
 
         living_date = adult_data["living_date"]
         living_day = living_date.split("-")[2]
